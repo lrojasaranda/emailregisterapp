@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html ng-app="erApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="@Url.Content("~/Content/css/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <base href="@Url.Content("~/")" />
+    <script type="text/javascript" src="@Url.Content("~/Content/js/angular.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/js/angular-ui/ui-bootstrap.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/js/angular-ui/ui-bootstrap-tpls.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/app/erApp.js")"></script>
+
+    <title>EmailRegisterApp</title>
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+   
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Aplicaciones NO SAP</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

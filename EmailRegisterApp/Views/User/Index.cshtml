@@ -1,0 +1,90 @@
+﻿@model EmailRegisterApp.Models.User
+
+    <div class="navbar navbar-default">
+        <div class="container-fluid pull-left">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="javascript:void(0)" style="padding-top:5px!important">
+                    @*<img alt="Brand" src="@logo" height="40" style="border:1px solid #ddd">*@
+                </a>
+                <a class="navbar-brand" href="#"></a>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="container" ng-controller="emailRegisterCtrl">
+        <div style='position: absolute;top: 0;left: 0;height:100%;width:100%;cursor: not-allowed;filter: alpha(opacity=60);opacity: 0.9;background: #ddd;z-index: 2001;' ng-if='isRouteLoading'>
+            <div style='padding:20% 25%' class='text-center'><h3>Cargando...</h3><div class='progress' style='margin:0 25%'><div class='progress-bar progress-bar-striped active' aria-valuemax='100' style='width: 100%'></div></div></div>
+        </div>
+        <script type="text/ng-template" id="Alerta.cshtml">
+            <div class="modal-body" style="padding:0px">
+                <div id="container">
+                    <alert style="margin-bottom:0px;border-radius:0px" ng-repeat="mensaje in mensajes" type="{{mensaje.type}}" close="cancel()">{{mensaje.msg}}</alert>
+                </div>
+            </div>
+        </script>
+        <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+           
+            <div class="panel panel-primary">
+                <div class="panel-heading">Registro de Correo Externo</div>
+                <div class="panel-body">
+                    <div class="col-lg-12 col-md-12 col-sm-12 nopadding">
+                        <label class="col-lg-6 col-md-6 col-sm-6">Nombre del empleado</label>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <input type="text" ng-model="user.Name" class="form-control" maxlength="50" placeholder="Ingrese su Nombre" />
+                        </div>
+
+                    </div>  
+                    <div class="col-lg-12 col-md-12 col-sm-12 nopadding">
+                        <label class="col-lg-6 col-md-6 col-sm-6">Email</label>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <input type="text" ng-model="user.Email" class="form-control" maxlength="50" placeholder="Ingrese su correo empresarial" />
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 nopadding">
+                    <label class="col-lg-6 col-md-6 col-sm-6">Empresa</label>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <input type="text" ng-model="user.Company" class="form-control" maxlength="50" placeholder="Ingrese el nombre de su empresa" />
+                    </div>
+                </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 nopadding"><br /></div>
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <thead class="">
+                                        <tr style="background-color:#f5f5f5">
+                                            <th><button class="btn-xs btn-primary" ng-click="add()"><span class="glyphicon glyphicon-plus-sign"></span></button></th>
+                                            <th>
+                                                <a href="javascript:void(0)" ng-click="sort('TipoAuditoria')">Email </a>
+                                            </th>
+                                            <th>
+                                                <a href="javascript:void(0)" ng-click="sort('ValorCampo')">Motivo</a>
+                                            </th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr data-ng-repeat="email in user.Emails">
+                                            <td width="1%" align="center">
+                                                <button class="btn-xs btn-danger" ng-click="remove($index)"><span class="glyphicon glyphicon-remove-sign"></span></button>
+                                            </td>
+                                            <td width="48%">
+                                                <input type="text" class="form-control" ng-model="email.Email" placeholder="Ingrese Email" />
+                                            </td>
+                                            <td width="48%">
+                                                <input type="text" class="form-control" ng-model="email.Motive" placeholder="Ingrese Motivo" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+
+                        <div class="pull-right">
+                            <button class="btn btn-primary" ng-click="save()"><span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>Guardar</button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
